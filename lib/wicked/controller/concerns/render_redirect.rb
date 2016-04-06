@@ -14,7 +14,7 @@ module Wicked::Controller::Concerns::RenderRedirect
 
   def process_resource!(resource)
     if resource
-      if resource.save
+      if resource.valid? && resource.save
         @skip_to ||= @next_step
       else
         @skip_to = nil
